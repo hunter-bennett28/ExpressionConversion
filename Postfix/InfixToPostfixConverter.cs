@@ -1,11 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Project2_Group_17
 {
     public static class InfixToPostfixConverter
     {
+        /// <summary>
+        /// Get the precedence of an operator
+        /// </summary>
+        /// <param name="op">The operator</param>
+        /// <returns>The precedence level</returns>
         private static int Precedence(char op)
         {
             switch (op)
@@ -24,6 +27,11 @@ namespace Project2_Group_17
             return -1;
         }
 
+        /// <summary>
+        /// Convert an infix expression into a postfix expression
+        /// </summary>
+        /// <param name="exp">An infix expression</param>
+        /// <returns>A post fix formatted expression</returns>
         public static string Convert(string exp)
         {
             // initializing empty string for result 
@@ -79,7 +87,6 @@ namespace Project2_Group_17
                     }
                     stack.Push(c);
                 }
-
             }
 
             // pop all the operators from the stack 

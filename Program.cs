@@ -18,7 +18,8 @@ namespace Project2_Group_17
             Console.WriteLine(underline);
             foreach (InfixExpression exp in expressions)
             {
-                // TODO
+                string convertedExpression = InfixToPrefixConverter.Convert(exp.Expression);
+                Console.WriteLine($"{exp.SNO}:\t{convertedExpression}");
             }
 
             // Print expression results
@@ -26,7 +27,9 @@ namespace Project2_Group_17
             Console.WriteLine(underline);
             foreach (InfixExpression exp in expressions)
             {
-                // TODO
+                string convertedExpression = InfixToPrefixConverter.Convert(exp.Expression);
+                string evaluatedResult = ExpressionEvaluation.EvaluatePreFix(convertedExpression);
+                Console.WriteLine($"{exp.SNO}:\t{evaluatedResult}");
             }
 
             /* Postfix */
@@ -50,7 +53,29 @@ namespace Project2_Group_17
                 Console.WriteLine($"{exp.SNO}:\t{evaluatedResult}");
             }
 
-            // TODO: Print sumary report
+            // Print sumary report
+            // Header
+            Console.WriteLine(underline);
+            string title = "Summary Report";
+            Console.WriteLine($"{new string(' ', (Console.WindowWidth-title.Length) / 2)}{title}");
+            Console.WriteLine(underline);
+            Console.WriteLine("|{0,-5}|{1,-24}|{2,-22}|{3,-22}|{4,-15}|{5,-15}|{6,-5}|", "Sno", "Infix", "Postfix", "Prefix", "Prefix Result", "Postfix Result", "Match");
+            Console.WriteLine(underline);
+
+            //Body
+            CompareExpressions compareResults = new CompareExpressions();
+            foreach (InfixExpression exp in expressions)
+            {
+                string preConvertedExpression = InfixToPrefixConverter.Convert(exp.Expression);
+                string preEvaluatedResult = ExpressionEvaluation.EvaluatePreFix(preConvertedExpression);
+
+                string postConvertedExpression = InfixToPostfixConverter.Convert(exp.Expression);
+                string postEvaluatedResult = ExpressionEvaluation.EvaluatePostFix(postConvertedExpression);
+
+                Console.WriteLine("|{0,-5}|{1,-24}|{2,-22}|{3,-22}|{4,-15}|{5,-15}|{6,-5}|",
+                    exp.SNO, exp.Expression, preConvertedExpression, postConvertedExpression, preEvaluatedResult, postEvaluatedResult, compareResults.Compare(Convert.ToDouble(preEvaluatedResult), Convert.ToDouble(postEvaluatedResult))==0 ? "true" : "false");
+            }
+            Console.WriteLine(underline);
 
             // TODO: Prompt user to launch web browser XML output
         }
