@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Project2_Group_17.Prefix
+namespace Project2_Group_17
 {
-    public class InfixToPrefixConverter
+    public static class InfixToPrefixConverter
     {
         /// <summary>
         /// Get the precedence of an operator
@@ -28,7 +28,7 @@ namespace Project2_Group_17.Prefix
             return -1;
         }
 
-        private static string infixToNearlyPostFix(string infix)
+        private static string InfixToNearlyPostFix(string infix)
         {
             infix = '(' + infix + ')';
             Stack<char> stack = new Stack<char>();
@@ -91,7 +91,7 @@ namespace Project2_Group_17.Prefix
                 }
             }
             //Convert to nearly post fix
-            expReversed = infixToNearlyPostFix(String.Concat(expReversed)).ToCharArray();
+            expReversed = InfixToNearlyPostFix(String.Concat(expReversed)).ToCharArray();
             Array.Reverse(expReversed);
             return String.Concat(expReversed);
         }

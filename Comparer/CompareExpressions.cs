@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Project2_Group_17.Comparer
+namespace Project2_Group_17
 {
     public class CompareExpressions : IComparer<string>
     {
