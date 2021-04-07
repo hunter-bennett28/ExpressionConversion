@@ -21,8 +21,35 @@ namespace Project2_Group_17
             {
                 // If character is an operator, do operation, otherwise put it on the stack
                 char ch = exp[j];
-                if(Operators.Contains(ch))
-                    stack.Push(Evaluate(Convert.ToInt32(stack.Pop()), Convert.ToInt32(stack.Pop()), ch));
+                if (Operators.Contains(ch))
+                    stack.Push(Evaluate(Convert.ToDouble(stack.Pop()), Convert.ToDouble(stack.Pop()), ch));
+                else
+                    stack.Push(ch.ToString());
+            }
+
+            // return final remaining value
+            return stack.Pop();
+        }
+
+        /// <summary>
+        /// Evaluates an expression into prefix
+        /// </summary>
+        /// <param name="exp">The expression</param>
+        /// <returns>A prefix string of the expression</returns>
+        public static string EvaluatePreFix(string exp)
+        {
+            Stack<string> stack = new Stack<string>();
+            for (int j = exp.Length-1; j >=0 ; j--)
+            {
+                // If character is an operator, do operation, otherwise put it on the stack
+                char ch = exp[j];
+                if (Operators.Contains(ch))
+                {
+                    double e1 = Convert.ToDouble(stack.Pop());
+                    double e2 = Convert.ToDouble(stack.Pop());
+
+                    stack.Push(Evaluate(e2, e1, ch));
+                }
                 else
                     stack.Push(ch.ToString());
             }
@@ -37,7 +64,7 @@ namespace Project2_Group_17
         /// <param name="leftOperand"></param>
         /// <param name="rightOperand"></param>
         /// <param name="op"></param>
-        private static string Evaluate(int rightOperand, int leftOperand, char op)
+        private static string Evaluate(double rightOperand, double leftOperand, char op)
         {
             // Determine expression from operator
             BinaryExpression expression;
@@ -60,7 +87,7 @@ namespace Project2_Group_17
             }
 
             // Put the result of the operation back on the stack for any more operations
-           return (Expression.Lambda<Func<int>>(expression).Compile())().ToString();
+           return (Expression.Lambda<Func<double>>(expression).Compile())().ToString();
         }
     }
 }
