@@ -59,7 +59,7 @@ namespace Project2_Group_17
             string title = "Summary Report";
             Console.WriteLine($"{new string(' ', (Console.WindowWidth-title.Length) / 2)}{title}");
             Console.WriteLine(underline);
-            Console.WriteLine("|{0,-5}|{1,-24}|{2,-24}|{3,-24}|{4,-15}|{5,-15}|{6,-5}|", "Sno", "Infix", "Postfix", "Prefix", "Prefix Result", "Postfix Result", "Match");
+            Console.WriteLine("|{0,-5}|{1,-24}|{2,-22}|{3,-22}|{4,-15}|{5,-15}|{6,-5}|", "Sno", "Infix", "Postfix", "Prefix", "Prefix Result", "Postfix Result", "Match");
             Console.WriteLine(underline);
 
             //Body
@@ -72,8 +72,8 @@ namespace Project2_Group_17
                 string postConvertedExpression = InfixToPostfixConverter.Convert(exp.Expression);
                 string postEvaluatedResult = ExpressionEvaluation.EvaluatePostFix(postConvertedExpression);
 
-                Console.WriteLine("|{0,-5}|{1,-24}|{2,-24}|{3,-24}|{4,-15}|{5,-15}|{6,-5}|",
-                    exp.SNO, exp.Expression, preConvertedExpression, postConvertedExpression, preEvaluatedResult, postEvaluatedResult, compareResults.Compare(preEvaluatedResult, postEvaluatedResult)==1 ? "true" : "false");
+                Console.WriteLine("|{0,-5}|{1,-24}|{2,-22}|{3,-22}|{4,-15}|{5,-15}|{6,-5}|",
+                    exp.SNO, exp.Expression, preConvertedExpression, postConvertedExpression, preEvaluatedResult, postEvaluatedResult, compareResults.Compare(Convert.ToDouble(preEvaluatedResult), Convert.ToDouble(postEvaluatedResult))==0 ? "true" : "false");
             }
             Console.WriteLine(underline);
 
