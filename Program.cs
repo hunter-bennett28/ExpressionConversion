@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project2_Group_17.XML;
+using System;
 using System.Collections.Generic;
 
 namespace Project2_Group_17
@@ -57,7 +58,7 @@ namespace Project2_Group_17
             // Header
             Console.WriteLine(underline);
             string title = "Summary Report";
-            Console.WriteLine($"{new string(' ', (Console.WindowWidth-title.Length) / 2)}{title}");
+            Console.WriteLine($"{new string(' ', (Console.WindowWidth - title.Length) / 2)}{title}");
             Console.WriteLine(underline);
             Console.WriteLine("|{0,-5}|{1,-24}|{2,-22}|{3,-22}|{4,-15}|{5,-15}|{6,-5}|", "Sno", "Infix", "Postfix", "Prefix", "Prefix Result", "Postfix Result", "Match");
             Console.WriteLine(underline);
@@ -73,11 +74,33 @@ namespace Project2_Group_17
                 string postEvaluatedResult = ExpressionEvaluation.EvaluatePostFix(postConvertedExpression);
 
                 Console.WriteLine("|{0,-5}|{1,-24}|{2,-22}|{3,-22}|{4,-15}|{5,-15}|{6,-5}|",
-                    exp.SNO, exp.Expression, preConvertedExpression, postConvertedExpression, preEvaluatedResult, postEvaluatedResult, compareResults.Compare(Convert.ToDouble(preEvaluatedResult), Convert.ToDouble(postEvaluatedResult))==0 ? "true" : "false");
+                    exp.SNO, exp.Expression, preConvertedExpression, postConvertedExpression, preEvaluatedResult, postEvaluatedResult, compareResults.Compare(Convert.ToDouble(preEvaluatedResult), Convert.ToDouble(postEvaluatedResult)) == 0 ? "true" : "false");
             }
             Console.WriteLine(underline);
 
-            // TODO: Prompt user to launch web browser XML output
+            //Call create new or overwrite XML file method
+            XMLExtension.CreateXMLFile(expressions);
+
+            bool done = false;
+            do
+            {
+                Console.Write("\nWould you like to lauch web browser to view XML output? (y/n): ");
+                string selection = Console.ReadLine().ToLower();
+                switch (selection)
+                {
+                    case ("y"):
+                        XMLExtension.OpenXMLtoChrome();
+                        done = true;
+                        break;
+                    case ("n"):
+                        done = true;
+                        break;
+                    default:
+                        Console.Write("\nInvalid selection. ");
+                        break;
+                }
+            } while (!done);
+            Console.WriteLine("\nThank you, have a nice day!");
         }
     }
 }
