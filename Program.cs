@@ -7,15 +7,17 @@ namespace Project2_Group_17
     {
         static void Main(string[] args)
         {
-            string underline = new string('=', Console.WindowWidth);
+            Console.WindowWidth = 116;
+            string underline = new string('═', Console.WindowWidth);
             // Parse expressions from CSV file
             List<InfixExpression> expressions = CSVFile.CSVDeserialize("../../../Data/Project 2_Info_5101.csv");
 
             /* Prefix */
 
             // Print converted Postfix expressions
-            Console.WriteLine("Prefix Expressions:");
             Console.WriteLine(underline);
+            Console.WriteLine("Prefix Expressions:");
+            Console.WriteLine($"{underline}\n");
             foreach (InfixExpression exp in expressions)
             {
                 string convertedExpression = InfixToPrefixConverter.Convert(exp.Expression);
@@ -23,8 +25,9 @@ namespace Project2_Group_17
             }
 
             // Print expression results
-            Console.WriteLine("\nPrefix Results:");
-            Console.WriteLine(underline);
+            Console.WriteLine($"\n{underline}");
+            Console.WriteLine("Prefix Results:");
+            Console.WriteLine($"{underline}\n");
             foreach (InfixExpression exp in expressions)
             {
                 string convertedExpression = InfixToPrefixConverter.Convert(exp.Expression);
@@ -35,8 +38,9 @@ namespace Project2_Group_17
             /* Postfix */
 
             // Print converted Postfix expressions
-            Console.WriteLine("\nPostfix Expressions:");
-            Console.WriteLine(underline);
+            Console.WriteLine($"\n{underline}");
+            Console.WriteLine("Postfix Expressions:");
+            Console.WriteLine($"{underline}\n");
             foreach (InfixExpression exp in expressions)
             {
                 string convertedExpression = InfixToPostfixConverter.Convert(exp.Expression);
@@ -44,8 +48,9 @@ namespace Project2_Group_17
             }
 
             // Print expression results
-            Console.WriteLine("\nPostfix Results:");
-            Console.WriteLine(underline);
+            Console.WriteLine($"\n{underline}");
+            Console.WriteLine("Postfix Results:");
+            Console.WriteLine($"{underline}\n");
             foreach (InfixExpression exp in expressions)
             {
                 string convertedExpression = InfixToPostfixConverter.Convert(exp.Expression);
@@ -53,14 +58,16 @@ namespace Project2_Group_17
                 Console.WriteLine($"{exp.SNO}:\t{evaluatedResult}");
             }
 
-            // Print sumary report
+            /* Summary Report*/
+
             // Header
-            Console.WriteLine(underline);
             string title = "Summary Report";
+            Console.WriteLine($"\n{underline}");
             Console.WriteLine($"{new string(' ', (Console.WindowWidth-title.Length) / 2)}{title}");
-            Console.WriteLine(underline);
-            Console.WriteLine("|{0,-5}|{1,-24}|{2,-22}|{3,-22}|{4,-15}|{5,-15}|{6,-5}|", "Sno", "Infix", "Postfix", "Prefix", "Prefix Result", "Postfix Result", "Match");
-            Console.WriteLine(underline);
+            Console.WriteLine($"{underline}\n");
+            Console.WriteLine("╔═════╦════════════════════════╦══════════════════════╦══════════════════════╦═══════════════╦═══════════════╦═════╗");
+            Console.WriteLine("║{0,-5}║{1,-24}║{2,-22}║{3,-22}║{4,-15}║{5,-15}║{6,-5}║", "Sno", "Infix", "Prefix", "Postfix", "Prefix Result", "Postfix Result", "Match");
+            Console.WriteLine("╠═════╬════════════════════════╬══════════════════════╬══════════════════════╬═══════════════╬═══════════════╬═════╣");
 
             //Body
             CompareExpressions compareResults = new CompareExpressions();
@@ -72,10 +79,10 @@ namespace Project2_Group_17
                 string postConvertedExpression = InfixToPostfixConverter.Convert(exp.Expression);
                 string postEvaluatedResult = ExpressionEvaluation.EvaluatePostFix(postConvertedExpression);
 
-                Console.WriteLine("|{0,-5}|{1,-24}|{2,-22}|{3,-22}|{4,-15}|{5,-15}|{6,-5}|",
-                    exp.SNO, exp.Expression, preConvertedExpression, postConvertedExpression, preEvaluatedResult, postEvaluatedResult, compareResults.Compare(Convert.ToDouble(preEvaluatedResult), Convert.ToDouble(postEvaluatedResult))==0 ? "true" : "false");
+                Console.WriteLine("║{0,-5}║{1,-24}║{2,-22}║{3,-22}║{4,-15}║{5,-15}║{6,-5}║",
+                    exp.SNO, exp.Expression, preConvertedExpression, postConvertedExpression, preEvaluatedResult, postEvaluatedResult, compareResults.Compare(Convert.ToDouble(preEvaluatedResult), Convert.ToDouble(postEvaluatedResult)) == 0 ? "true" : "false");
             }
-            Console.WriteLine(underline);
+            Console.WriteLine("╚═════╩════════════════════════╩══════════════════════╩══════════════════════╩═══════════════╩═══════════════╩═════╝");
 
             // TODO: Prompt user to launch web browser XML output
         }
