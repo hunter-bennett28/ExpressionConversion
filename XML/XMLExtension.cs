@@ -174,7 +174,8 @@ namespace Project2_Group_17.XML
             bool started = false;
             try
             {
-                string path = Path.Combine(Environment.CurrentDirectory,FILE_PATH);
+
+                string path = cmdBrowser == "firefox"? FILE_PATH : Path.Combine(Environment.CurrentDirectory,FILE_PATH);
                 Process process = new Process();
                 process.StartInfo.UseShellExecute = true;
                 process.StartInfo.FileName = cmdBrowser;
