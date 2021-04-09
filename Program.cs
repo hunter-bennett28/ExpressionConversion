@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project2_Group_17.XML;
+using System;
 using System.Collections.Generic;
 
 namespace Project2_Group_17
@@ -84,7 +85,29 @@ namespace Project2_Group_17
             }
             Console.WriteLine("╚═════╩════════════════════════╩══════════════════════╩══════════════════════╩═══════════════╩═══════════════╩═════╝");
 
-            // TODO: Prompt user to launch web browser XML output
+            //Create XML file
+            XMLExtension.CreateXMLFile(expressions);
+
+            bool done = false;
+            do
+            {
+                Console.Write("\nWould you like to lauch web browser to view XML output? (y/n): ");
+                string selection = Console.ReadLine().ToLower();
+                switch (selection)
+                {
+                    case ("y"):
+                        XMLExtension.OpenXMLInBrowser();
+                        done = true;
+                        break;
+                    case ("n"):
+                        done = true;
+                        break;
+                    default:
+                        Console.Write("\nInvalid selection. ");
+                        break;
+                }
+            } while (!done);
+            Console.WriteLine("\nThank you, have a nice day!");
         }
     }
 }
