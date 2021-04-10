@@ -13,7 +13,7 @@ namespace Project2_Group_17.XML
     public static class XMLExtension
     {
         //class wide filepath variable to be used by multiple helper methods.
-        const string FILE_PATH = "../../../Data/Project_2_Info_5101_XML_Output.xml";
+        const string FILE_PATH = @"..\..\..\Data\Project_2_Info_5101_XML_Output.xml";
         /// <summary>
         /// Write the document start to a StreamWriter.
         /// </summary>
@@ -124,21 +124,71 @@ namespace Project2_Group_17.XML
         }
 
         /// <summary>
-        /// This method opens the xml file to be viewed on browser
+        /// This method asks what browser the user would like to use.
         /// </summary>
         public static void OpenXMLInBrowser()
         {
+
+            bool done = false;
+            Console.WriteLine("\nBrowser Viewing Options:\n" +
+                "\n\t1) Chrome" +
+                "\n\t2) Firefox" +
+                "\n\t3) Edge" +
+                "\n\tQ) Quit");
+            do
+            {
+                Console.Write("\nSelect browser index to view file in (Ex. 1, Q): ");
+                string selection = Console.ReadLine().ToLower();
+                switch (selection)
+                {
+                    case ("1"):
+                        done = ProcessStarted("chrome", "Chrome");
+                        break;
+                    case ("2"):
+                        done = ProcessStarted("firefox", "FireFox");
+                        break;
+                    case ("3"):
+                        done = ProcessStarted("msedge", "Microsoft Edge");
+                        break;
+                    case ("q"):
+                        done = true;
+                        break;
+                    default:
+                        Console.WriteLine("\nInvalid selection. ");
+                        break;
+                }
+            } while (!done);
+
+
+        }
+
+        /// <summary>
+        /// Attempt to open the xml file in the user's selected browser
+        /// </summary>
+        /// <param name="browser">the command line argument to open the selected browser.</param>
+        /// <param name="browserName">The browser name.</param>
+        /// <returns>The result.</returns>
+        public static bool ProcessStarted(string cmdBrowser, string browserName)
+        {
+            bool started = false;
             try
             {
-                string path = Path.Combine(Environment.CurrentDirectory, FILE_PATH);
+
+                string path = Path.Combine(Environment.CurrentDirectory,FILE_PATH);
                 Process process = new Process();
-                process.StartInfo.FileName = $"\"{path}\"";
                 process.StartInfo.UseShellExecute = true;
-                process.Start();
-            } catch(Exception ex)
+                process.StartInfo.FileName = cmdBrowser;
+                path = ($"\"{path}\"");
+                process.StartInfo.Arguments = path;
+                started = process.Start();
+                Console.WriteLine($"The created XML file should now be opened on your {browserName} browser.");
+                process.Close();            
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
+            return started;
         }
     }
 }
