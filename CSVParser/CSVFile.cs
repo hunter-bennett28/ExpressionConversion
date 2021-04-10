@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* CSVFile.cs
+ * Author: Hunter Bennett, Connor Black, James Dunton
+ * Desc:    This class opens and deserializes a CSV file.
+ */
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -6,7 +11,6 @@ namespace Project2_Group_17
 {
     public static class CSVFile
     {
-
         /// <summary>
         /// Parses a CSV at given file path. Expects file to have lines containing
         /// a serial/expression number and an infix notation expression on each line.

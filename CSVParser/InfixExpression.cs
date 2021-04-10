@@ -1,4 +1,9 @@
-﻿namespace Project2_Group_17
+﻿/* InfixExpression.cs
+ * Author: Hunter Bennett, Connor Black, James Dunton
+ * Desc:    This class represents an infix expression, containing an expression and an identifier number.
+ */
+
+namespace Project2_Group_17
 {
     public class InfixExpression
     {

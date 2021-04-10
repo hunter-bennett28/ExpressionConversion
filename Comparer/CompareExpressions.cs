@@ -1,4 +1,9 @@
-﻿using System.Collections.Generic;
+﻿/* CompareExpressions.cs
+ * Author: Hunter Bennett, Connor Black, James Dunton
+ * Desc:    This class extends IComparer and is able to compare the results of two calculations
+ */
+
+using System.Collections.Generic;
 
 namespace Project2_Group_17
 {

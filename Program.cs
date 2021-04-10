@@ -1,4 +1,9 @@
-﻿using Project2_Group_17.XML;
+﻿/* Program.cs
+ * Author: Hunter Bennett, Connor Black, James Dunton
+ * Desc:    This program simulates an expression evaluator, being able to parse and evaluate 
+ *          expressions in prefix, and postfix
+ */
+
 using System;
 using System.Collections.Generic;
 

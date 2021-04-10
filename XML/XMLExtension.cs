@@ -1,6 +1,8 @@
-﻿/// XMLExtension.cs
-/// Authors: James Dunton, Hunter Bennett, Connor Black
-/// Desc: Extension and helper methods to build and view a new XML file.
+﻿/* XMLExtension.cs
+ * Author: Hunter Bennett, Connor Black, James Dunton
+ * Desc:    This class prompts for user input on which browser to open a XML file in
+ *          and will create it.
+ */
 
 using System;
 using System.Collections.Generic;
@@ -8,7 +10,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 
-namespace Project2_Group_17.XML
+namespace Project2_Group_17
 {
     public static class XMLExtension
     {
