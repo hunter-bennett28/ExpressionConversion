@@ -13,7 +13,7 @@ namespace Project2_Group_17.XML
     public static class XMLExtension
     {
         //class wide filepath variable to be used by multiple helper methods.
-        const string FILE_PATH = "../../../Data/Project_2_Info_5101_XML_Output.xml";
+        const string FILE_PATH = @"..\..\..\Data\Project_2_Info_5101_XML_Output.xml";
         /// <summary>
         /// Write the document start to a StreamWriter.
         /// </summary>
@@ -130,15 +130,14 @@ namespace Project2_Group_17.XML
         {
 
             bool done = false;
-            string browser = "";
-            Console.WriteLine("The browser choices that you have to view the XML file are:" +
+            Console.WriteLine("\nBrowser Viewing Options:\n" +
                 "\n\t1) Chrome" +
                 "\n\t2) Firefox" +
                 "\n\t3) Edge" +
-                "\nOr type Q to quit...");
+                "\n\tQ) Quit");
             do
             {
-                Console.Write("\nWhat browser would you like to view the XML file in?: ");
+                Console.Write("\nSelect browser index to view file in (Ex. 1, Q): ");
                 string selection = Console.ReadLine().ToLower();
                 switch (selection)
                 {
@@ -175,7 +174,7 @@ namespace Project2_Group_17.XML
             try
             {
 
-                string path = cmdBrowser == "firefox"? FILE_PATH : Path.Combine(Environment.CurrentDirectory,FILE_PATH);
+                string path = Path.Combine(Environment.CurrentDirectory,FILE_PATH);
                 Process process = new Process();
                 process.StartInfo.UseShellExecute = true;
                 process.StartInfo.FileName = cmdBrowser;
