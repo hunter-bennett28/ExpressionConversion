@@ -1,5 +1,5 @@
 ﻿/* CSVFile.cs
- * Author: Hunter Bennett, Connor Black, James Dunton
+ * Author:  Hunter Bennett, Connor Black, James Dunton
  * Desc:    This class opens and deserializes a CSV file.
  */
 

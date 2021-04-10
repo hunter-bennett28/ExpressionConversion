@@ -1,5 +1,5 @@
 ﻿/* CompareExpressions.cs
- * Author: Hunter Bennett, Connor Black, James Dunton
+ * Author:  Hunter Bennett, Connor Black, James Dunton
  * Desc:    This class extends IComparer and is able to compare the results of two calculations
  */
 

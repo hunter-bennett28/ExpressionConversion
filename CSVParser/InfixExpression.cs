@@ -1,5 +1,5 @@
 ﻿/* InfixExpression.cs
- * Author: Hunter Bennett, Connor Black, James Dunton
+ * Author:  Hunter Bennett, Connor Black, James Dunton
  * Desc:    This class represents an infix expression, containing an expression and an identifier number.
  */
 

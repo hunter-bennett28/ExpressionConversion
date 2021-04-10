@@ -1,5 +1,5 @@
 ﻿/* InfixToPostfixConverter.cs
- * Author: Hunter Bennett, Connor Black, James Dunton
+ * Author:  Hunter Bennett, Connor Black, James Dunton
  * Desc:    This class converts an infix expression into a postfix expression
  */
 

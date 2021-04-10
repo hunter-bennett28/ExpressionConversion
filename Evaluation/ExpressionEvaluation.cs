@@ -1,5 +1,5 @@
 ﻿/* ExpressionEvaluation.cs
- * Author: Hunter Bennett, Connor Black, James Dunton
+ * Author:  Hunter Bennett, Connor Black, James Dunton
  * Desc:    This static class evaluates a string expression in either postfix or
  *          prefix using an expression tree
  */

@@ -1,5 +1,5 @@
 ﻿/* Program.cs
- * Author: Hunter Bennett, Connor Black, James Dunton
+ * Author:  Hunter Bennett, Connor Black, James Dunton
  * Desc:    This program simulates an expression evaluator, being able to parse and evaluate 
  *          expressions in prefix, and postfix
  */

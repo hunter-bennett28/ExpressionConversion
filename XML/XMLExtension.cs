@@ -1,5 +1,5 @@
 ﻿/* XMLExtension.cs
- * Author: Hunter Bennett, Connor Black, James Dunton
+ * Author:  Hunter Bennett, Connor Black, James Dunton
  * Desc:    This class prompts for user input on which browser to open a XML file in
  *          and will create it.
  */
