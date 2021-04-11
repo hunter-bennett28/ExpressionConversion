@@ -1,4 +1,10 @@
-﻿using System;
+﻿/* ExpressionEvaluation.cs
+ * Author:  Hunter Bennett, Connor Black, James Dunton
+ * Desc:    This static class evaluates a string expression in either postfix or
+ *          prefix using an expression tree
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -32,7 +38,7 @@ namespace Project2_Group_17
         }
 
         /// <summary>
-        /// Evaluates an expression into prefix
+        /// Evaluates an expression into prefix and returns a string representation of the expression
         /// </summary>
         /// <param name="exp">The expression</param>
         /// <returns>A prefix string of the expression</returns>

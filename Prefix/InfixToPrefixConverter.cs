@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* InfixToPrefixConverter.cs
+ * Author:  Hunter Bennett, Connor Black, James Dunton
+ * Desc:    This class converts an infix expression into a prefix expression
+ */
+
+using System;
 using System.Collections.Generic;
 
 namespace Project2_Group_17
@@ -90,7 +95,8 @@ namespace Project2_Group_17
                         break;
                 }
             }
-            //Convert to nearly post fix
+
+            //Convert to nearly post fix so it can be reversed
             expReversed = InfixToNearlyPostFix(String.Concat(expReversed)).ToCharArray();
             Array.Reverse(expReversed);
             return String.Concat(expReversed);
