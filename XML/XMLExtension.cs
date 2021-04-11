@@ -16,6 +16,7 @@ namespace Project2_Group_17
     {
         //class wide filepath variable to be used by multiple helper methods.
         const string FILE_PATH = @"..\..\..\Data\Project_2_Info_5101_XML_Output.xml";
+
         /// <summary>
         /// Write the document start to a StreamWriter.
         /// </summary>
@@ -126,11 +127,11 @@ namespace Project2_Group_17
         }
 
         /// <summary>
-        /// This method asks what browser the user would like to use.
+        /// Gets a browser choice from user and calls to start corresponding browser
+        /// with compiled XML results
         /// </summary>
         public static void OpenXMLInBrowser()
         {
-
             bool done = false;
             Console.WriteLine("\nBrowser Viewing Options:\n" +
                 "\n\t1) Chrome" +
@@ -160,8 +161,6 @@ namespace Project2_Group_17
                         break;
                 }
             } while (!done);
-
-
         }
 
         /// <summary>
