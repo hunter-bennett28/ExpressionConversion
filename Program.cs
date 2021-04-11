@@ -13,8 +13,10 @@ namespace Project2_Group_17
     {
         static void Main(string[] args)
         {
+            // Set up console width for formatting
             Console.WindowWidth = 116;
             string underline = new string('═', Console.WindowWidth);
+
             // Parse expressions from CSV file
             List<InfixExpression> expressions = CSVFile.CSVDeserialize("../../../Data/Project 2_Info_5101.csv");
 
